@@ -4,7 +4,7 @@ module Rodauth
     auth_value_method :phlex_components_namespace, "RodauthPhlex::Components"
     auth_value_method :phlex_emails_namespace, "RodauthPhlex::Emails"
 
-    auth_value_method :phlex_layout_class, RodauthPhlex::Undefined
+    auth_value_method :phlex_layout_class, ::RodauthPhlex::Undefined
     auth_value_method :phlex_layout_title_key, :title
     auth_methods(
       :phlex_set_page_title,
@@ -13,7 +13,7 @@ module Rodauth
 
     # render a view
     def view(page, title)
-      if (layout = phlex_layout_class) != RodauthPhlex::Undefined
+      if (layout = phlex_layout_class) != ::RodauthPhlex::Undefined
         scope.phlex_layout(layout)
       end
       scope.phlex_layout_opts(phlex_set_page_title(title, scope.phlex_layout_opts))
