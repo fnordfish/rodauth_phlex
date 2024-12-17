@@ -15,7 +15,7 @@ module RodauthPhlex::Components
 
     def view_template
       field = @field
-      error = field_error(field)
+      error = rodauth.field_error(field)
       return unless error
       span(class: rodauth.input_field_error_message_class, id: "#{field}_error_message") { error }
     end
